@@ -2,6 +2,7 @@
 body
 {
 	font-size:90px;
+	color:#000;
 }
 
 h1, h2, h3, h4, h5
@@ -16,30 +17,52 @@ h1 span, h2 span, h3 span, h4 span, h5 span
 
 h1
 {
-	color:#000;
+	opacity:1;
 	font-size:120%;
 }
 
 h2
 {
-	color:#666;
+	opacity:0.7;
 	font-size:70%;
 }
 
 h3
 {
-	color:#888;
+	opacity:0.55;
 	font-size:55%;
 }
 
 h4
 {
-	color:#ccc;
+	opacity:0.45;
 	font-size:45%;
 }
 
 h5
 {
-	color:#eee;
+	opacity:0.2;
 	font-size:20%;
+}
+
+
+
+.new
+{
+	color:#6F8A0C;
+}
+
+.mid
+{
+	color:#BF870D;
+}
+
+.old
+{
+	color:#BD5022;
+}
+
+.ancient
+{
+	color:#CF4C3E;
 }

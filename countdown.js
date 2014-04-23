@@ -41,6 +41,40 @@ function Wait(expected) {
 	};
 }
 
+function Decay() {
+	
+	var start = new Date();
+	
+	this.getDiff = function() {
+	
+		return (new Date()) - start;
+	};
+	
+	this.getAge = function() {
+		
+		var diff = this.getDiff();
+		
+		var age = 'new';
+		
+		switch(true)
+		{
+			case (diff < 20000):
+				age = 'new';
+				break;
+			case (diff > 20000 && diff < 40000):
+				age = 'mid';
+				break;
+			case (diff > 40000 && diff < 80000):
+				age = 'old';
+				break;
+			case (diff > 80000):
+				age = 'ancient';
+				break;
+		}
+		
+		return age;
+	};	
+}
 
 function TimeHeader(i, arrival) {
 	
@@ -48,11 +82,16 @@ function TimeHeader(i, arrival) {
 	
 	var expected = new UtcTime(arrival.scheduledTime);
 	
+	var age = new Decay();
+	
 	var _UpdateCountdown = function() {
 	
 		var wait = new Wait(expected);
 		
-		header.html(wait.toString() + ' <span>(' + expected.getFormattedTime() + ')</span>');
+		header.html('<div class="' + age.getAge() + '">' 
+						+ wait.toString() 
+						+ ' <span>(' + expected.getFormattedTime() + ')</span> \
+					</div>');
 	};
 	
 	_UpdateCountdown();
@@ -102,7 +141,7 @@ $(function() {
 	
 		FetchLatest(container, function(shortestWait) {  
 			
-			var nextRefresh = Math.round(shortestWait * 0.8 * 6000, 0);
+			var nextRefresh = Math.round(shortestWait * 0.7 * 60000, 0);
 			
 			console.log('refreshing in ' + nextRefresh + 'ms');
 			
