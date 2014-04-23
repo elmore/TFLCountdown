@@ -9,16 +9,16 @@ function UtcTime(timeString) {
 	
 	d.setUTCMinutes(parts[1]);
 	
-	var getPaddedMinutes = function() {
+	var getPadded = function(f) {
 		
-		var intVal = d.getMinutes();
+		var intVal = f.call(d);
 		
 		return intVal < 10 ? '0' + intVal : intVal;
 	};
 	
 	d.getFormattedTime = function() {
 	
-		return d.getHours() + ':' + getPaddedMinutes();
+		return getPadded(d.getHours) + ':' + getPadded(d.getMinutes);
 	};
 	
 	return d;
