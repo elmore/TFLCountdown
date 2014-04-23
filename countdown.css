@@ -3,6 +3,8 @@ body
 {
 	font-size:90px;
 	color:#000;
+	border:0px;
+	margin:0px;	
 }
 
 h1, h2, h3, h4, h5
@@ -65,4 +67,16 @@ h5
 .ancient
 {
 	color:#CF4C3E;
+}
+
+#footer
+{
+	width:100%;
+	position:fixed;
+	height:20%;
+	min-height:170px;
+	background-color:#ededde;
+	bottom:0px;
+	border:0px;
+	margin:0px;
 }
