@@ -84,7 +84,7 @@ function FetchLatest(container, callback) {
 			
 			(new TimeHeader(i+1, arrival)).render(container);
 			
-			if(arrival.estimatedWait !== 'due') { shortestWait = 1; }
+			if(arrival.estimatedWait === 'due') { shortestWait = 1; }
 			
 			if(parseInt(arrival.estimatedWait) < shortestWait) { shortestWait = parseInt(arrival.estimatedWait); }
 		});
